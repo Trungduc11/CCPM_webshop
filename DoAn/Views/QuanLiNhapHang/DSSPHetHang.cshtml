@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "DSSPHetHang";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 13, canSort: false);
+}
+<h2>DANH SÁCH SẢN PHẨM GẦN HẾT HÀNG</h2>
+<br />
+@grid.GetHtml(
+tableStyle: "table table-bordered",
+headerStyle: "gridHead",
+footerStyle: "gridFooter",
+columns: grid.Columns(
+    grid.Column("TenSP", "Tên Sản Phẩm", style: "tensp"),
+    grid.Column("HinhAnh", "Hình Ảnh", format: p => Html.Raw("<img height='150' width='100' src=\"/Content/hinhanhsp/" + p.HinhAnh + "\" />"), style: "hinhanh"),
+    grid.Column("MoTa", "Mô Tả", format: p => Html.Raw(p.MoTa)),
+    grid.Column("SoLuongTon", "Số Lượng",style:"hinhanh"),
+    grid.Column(format: p => Html.ActionLink("Nhập hàng", "NhapHang", new { @id = p.MaSP }, new { @class = "btn btn-primary" }))
+    ))
+<style>
+    .gridHead {
+        text-align: center;
+        font-weight: bold;
+        color: #FFF;
+        background: #264e68;
+        background: -webkit-linear-gradient(#335872, #264e68);
+        background: -o-linear-gradient(#335872, #264e68);
+        background: -moz-linear-gradient(#335872, #264e68);
+        background: linear-gradient(#335872, #264e68);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .gridFooter {
+        text-align: center;
+        width: 400px;
+        font-weight: bold;
+        background-color: #264e68;
+    }
+
+        .gridFooter a {
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px 10px 10px 10px;
+        }
+
+            .gridFooter a:hover:not(.active) {
+                background-color: black;
+            }
+
+    .masp {
+        width: 115px;
+        text-align: center;
+    }
+
+    .tensp {
+        width: 120px;
+        text-align: center;
+    }
+
+    .hinhanh {
+        width: 120px;
+        text-align: center;
+        font-weight:bold;
+        color:red;
+    }
+
+    .chinhsua {
+        width: 90px;
+        text-align: center;
+    }
+</style>
+
+

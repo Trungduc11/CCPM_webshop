@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="900e6daa618046eface081b71065296c" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="BanHangModel.ChiTietDonDatHang" Width="1.5" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="BanHangModel.ChiTietPhieuNhap" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="BanHangModel.DonDatHang" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="BanHangModel.KhachHang" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="BanHangModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="BanHangModel.LoaiThanhVien" Width="1.5" PointX="1.5" PointY="21" />
+        <EntityTypeShape EntityType="BanHangModel.LoaiThanhVien_Quyen" Width="1.5" PointX="3.75" PointY="20.875" />
+        <EntityTypeShape EntityType="BanHangModel.NhaSanXuat" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BanHangModel.Phieunhap" Width="1.5" PointX="3" PointY="8.875" />
+        <EntityTypeShape EntityType="BanHangModel.Quyen" Width="1.5" PointX="1.5" PointY="24.125" />
+        <EntityTypeShape EntityType="BanHangModel.SanPham" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="BanHangModel.ThanhVien" Width="1.5" PointX="1.5" PointY="16.375" />
+        <AssociationConnector Association="BanHangModel.FK_ChiTietDonDatHang_DonDatHang" />
+        <AssociationConnector Association="BanHangModel.FK_ChiTietDonDatHang_SanPham" />
+        <AssociationConnector Association="BanHangModel.FK_ChiTietPhieuNhap_PhieuNhap" />
+        <AssociationConnector Association="BanHangModel.FK_ChiTietPhieuNhap_SanPham" />
+        <AssociationConnector Association="BanHangModel.FK_DonDatHang_KhachHang" />
+        <AssociationConnector Association="BanHangModel.FK_KhachHang_ToTable" />
+        <AssociationConnector Association="BanHangModel.FK_SanPham_LoaiSP" />
+        <AssociationConnector Association="BanHangModel.FK_LoaiThanhVien_Quyen_LoaiThanhVien" />
+        <AssociationConnector Association="BanHangModel.FK_ThanhVien_ToTable" />
+        <AssociationConnector Association="BanHangModel.FK_LoaiThanhVien_Quyen_Quyen" />
+        <AssociationConnector Association="BanHangModel.FK_Phieunhap_ToTable" />
+        <AssociationConnector Association="BanHangModel.FK_SanPham_NhaSanXuat" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

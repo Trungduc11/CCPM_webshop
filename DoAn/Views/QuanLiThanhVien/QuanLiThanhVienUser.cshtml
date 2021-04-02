@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "QuanLiThanhVienUser";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 50, canSort: false);
+}
+<h2>DANH SÁCH THÀNH VIÊN HỆ THỐNG</h2>
+<br />
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="@Url.Action("QuanLiThanhVienAdmin","QuanLiThanhVien")" style="font-weight:bold;">Quản trị viên</a></li>
+    <li role="presentation" class="active"><a href="@Url.Action("QuanLiThanhVienUser","QuanLiThanhVien")" style="font-weight:bold;">Khách hàng</a></li>
+</ul>
+<br />
+@grid.GetHtml(
+tableStyle: "table table-bordered",
+headerStyle: "gridHead",
+footerStyle: "gridFooter",
+columns: grid.Columns(
+    grid.Column("TaiKhoan", "Tài Khoản", style: "design"),
+    grid.Column("MatKhau", "Mật Khẩu", style: "design"),
+    grid.Column("HoTen", "Họ Tên KH", style: "design"),
+    grid.Column("DiaChi", "Địa chỉ", style: "design"),
+    grid.Column("SoDienThoai", "Số Điện Thoại", style: "design"),
+    grid.Column("MaLoaiTV", "Loại Thành Viên", style: "design", format: p => p.MaLoaiTV != null ? p.LoaiThanhVien.TenLoai : ""),
+    grid.Column(format: p => Html.ActionLink("Sửa", "ChinhSuaTV", new { @id = p.MaThanhVien }, new { @class = "btn btn-warning" }), style: "design")
+))
+<style>
+    .gridHead {
+        text-align: center;
+        font-weight: bold;
+        color: #FFF;
+        background: #264e68;
+        background: -webkit-linear-gradient(#335872, #264e68);
+        background: -o-linear-gradient(#335872, #264e68);
+        background: -moz-linear-gradient(#335872, #264e68);
+        background: linear-gradient(#335872, #264e68);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .gridFooter {
+        text-align: center;
+        width: 400px;
+        font-weight: bold;
+        background-color: #264e68;
+    }
+
+        .gridFooter a {
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px 10px 10px 10px;
+        }
+
+            .gridFooter a:hover:not(.active) {
+                background-color: black;
+            }
+
+    .design {
+        width: 120px;
+        text-align: center;
+    }
+
+    .chinhsua {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+
+

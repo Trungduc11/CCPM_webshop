@@ -1,0 +1,43 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<DoAn.Models.SanPham>
+@{
+    ViewBag.Title = "SanPhamDanhMuc";
+    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+}
+<div class="col-md-9">
+    <div class=" bottom-product">
+        @foreach (var item in Model.OrderBy(n => n.DonGia))
+        {
+            <div class="col-md-4 bottom-cd">
+                <div class="product-at ">
+                    <a href="@Url.Action("XemChitietSanPham","SanPham", new { @idsp= item.MaSP})">
+                        <img class="img-responsive center-block" src="@Url.Content("~/Content/hinhanhsp/"+item.HinhAnh)" alt="" style="width:150px;height:220px;">
+                    </a>
+                    @if (item.SoLuongTon <= 0)
+                    {
+                        <div class="pro-grid">
+                            <span class="buy-in">Hết Hàng</span>
+                        </div>
+                    }
+                </div>
+                <p class="tun">@item.TenSP</p>
+                <h5 class="text-center">@item.DonGia.Value.ToString("#,##") VNĐ</h5>
+
+                @*<a href="@Url.Action("ThemGioHang","GioHang", new { @MaSP= item.MaSP, @strURL=Request.Url.ToString()})" class="item_add"><p class="number item_price"><i></i>Mua</p></a>*@
+                @Ajax.ActionLink("Mua", "ThemGioHangAjax", "GioHang", new { @MaSP = item.MaSP, @strURL = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divGioHang", InsertionMode = InsertionMode.Replace }, new { @class = "form-control btn btn-warning", @style = "background-color:orangered"})
+            </div>
+        }
+        <div class="clearfix"></div>
+    </div>
+    @if (@Model.PageCount > 1)
+    {
+        <div class="dlink" style="font-weight:bold;">
+            Trang @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("SanPhamDanhMuc", new { page = page, @MaLoai = ViewBag.MaLoai }))
+        </div>
+    }
+</div>
+
+
+
+

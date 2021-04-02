@@ -1,0 +1,67 @@
+﻿@model DoAn.Models.SanPham
+@{
+    ViewBag.Title = "NhapHang";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<legend>Nhập hàng cho sản phẩm<b style="color:rgb(192,0,0)"> @Model.TenSP</b></legend>
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <img src="@Url.Content("~/Content/hinhanhsp/"+Model.HinhAnh)" width="150" />
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div>
+            <h4>Loại Sản Phẩm: @Model.LoaiSanPham.TenLoai</h4>
+            <h4>Số lượng tồn: @Model.SoLuongTon</h4> 
+        </div>
+    </div>
+</div>
+<br />
+<fieldset>
+    <legend>Thông tin nhập hàng</legend>
+</fieldset>
+@using(Html.BeginForm("NhapHang","QuanLiNhapHang"))
+{
+    @Html.Hidden("MaSP",Model.MaSP)
+<div class="row">
+    <div class="col-md-4">
+       @{ var lstNSX = (SelectList)ViewBag.MaNSX;}
+        Nhà Sản Xuất: @Html.DropDownList("MaNSX", lstNSX,new {disabled=true})
+    </div>
+    <div class="col-md-4">
+        Số lượng nhập: @Html.TextBox("SoLuongNhap",0,new {@class= "txtSoLuong" })
+        <p style="color:red;" id="TB_SoLuong"></p>
+    </div>
+    <div class="col-md-4">
+        Đơn giá nhập: @Html.TextBox("DonGiaNhap", 0, new { @class = "txtDonGia" })
+        <p style="color:red;" id="TB_DonGia"></p>
+    </div>
+</div>
+<div class="clearfix" style="text-align:right;">
+    <br />
+    <input type="submit" class="btn btn-primary" value="Nhập hàng" id="btn_nhaphang" />
+</div>
+}
+<script>
+    $("#btn_nhaphang").click(function () {
+        var giatri = $(".txtDonGia").val();
+        if (isNaN(giatri) == true)
+        {
+            $("#TB_DonGia").text("Đơn giá nhập không hợp lệ");
+            return false;
+        }
+    });
+
+    $("#btn_nhaphang").click(function () {
+        var giatri = $(".txtSoLuong").val();
+        if (isNaN(giatri) == true) {
+            $("#TB_SoLuong").text("Số lượng nhập không hợp lệ");
+            return false;
+        }
+    });
+</script>
+

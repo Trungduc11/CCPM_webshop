@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "DoanhThuThang";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 10, canSort: false);
+}
+
+<h2>THỐNG KÊ DOANH THU THEO THÁNG/NĂM</h2>
+<br />
+<style>
+    .sales {
+        font-size: 11px;
+    }
+
+    .orders {
+        font-size: 11px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div class="sales">
+        <div class="icon" style="font-size:13px;">
+            <i class="dollar"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.DoanhThuTheoThang K</h3>
+            <p>Doanh Thu Tháng @ViewBag.Thang</p><br />
+            <p>Năm @ViewBag.Nam</p>
+        </div>
+    </div>
+    <div class="orders">
+        <div class="icon">
+            <i class="order"></i>
+        </div>
+        <div class="icon-text">
+            <h3>@ViewBag.ThongKeDonHangTheoThang</h3>
+            <p>Tổng Đơn Hàng</p><br />
+            <p>Tháng @ViewBag.Thang Năm @ViewBag.Nam</p>
+        </div>
+    </div>
+    <div>
+        @Html.Label("Tháng")
+        <br />
+        @Html.TextBox("thang", "", new { @class = "form-control", @style = "width:45%" })
+
+        @Html.Label("Năm")
+        <br />
+        @Html.TextBox("nam", "", new { @class = "form-control", @style = "width:45%;display:inline;" })
+        <br />
+        <input style="margin-top: 10px;" value="Thống kê" type="submit" id="xacnhan" class="btn btn-success" />
+        <br />
+        <br />
+    </div>
+    @grid.GetHtml(
+       tableStyle: "table table-bordered",
+       headerStyle: "gridHead",
+       footerStyle: "gridFooter",
+       columns: grid.Columns(
+       grid.Column("MaDDH", "Mã Đơn Hàng", style: "design"),
+       grid.Column("MaKH", "Họ Tên KH", style: "design", format: p => p.MaKH != null ? p.KhachHang.TenKH : ""),
+       grid.Column("NgayDat", "Ngày Đặt", style: "design"),
+       grid.Column(format: p => Html.ActionLink("Chi tiết", "ChiTiet", new { @id=p.MaDDH }), style: "chinhsua")
+   ))
+}
+<style>
+    .gridHead {
+        text-align: center;
+        font-weight: bold;
+        color: #FFF;
+        background: #264e68;
+        background: -webkit-linear-gradient(#335872, #264e68);
+        background: -o-linear-gradient(#335872, #264e68);
+        background: -moz-linear-gradient(#335872, #264e68);
+        background: linear-gradient(#335872, #264e68);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .gridFooter {
+        text-align: center;
+        width: 400px;
+        font-weight: bold;
+        background-color: #264e68;
+    }
+
+        .gridFooter a {
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px 10px 10px 10px;
+        }
+
+            .gridFooter a:hover:not(.active) {
+                background-color: black;
+            }
+
+    .design {
+        width: 120px;
+        text-align: center;
+    }
+
+    .chinhsua {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+

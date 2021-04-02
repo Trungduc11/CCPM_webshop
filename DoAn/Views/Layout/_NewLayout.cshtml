@@ -1,0 +1,119 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Tin Tức</title>
+    <link rel="shortcut icon" href="~/Content/images/icon_logo.png" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/stylefooter.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
+    <!-- start menu -->
+    <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/Content/js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <script src="~/Content/js/simpleCart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+        @Html.Partial("~/Views/Layout/HeaderTop.cshtml")
+        <div class="container">
+            <div class="head-top">
+                <div class="logo">
+                    <a href="\"><img src="~/Content/images/logo.png" alt=""></a>
+                </div>
+                @Html.Action("MenuPartial", "Home")
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+    <!--content-->
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        <div class="footerbrand">
+            <p style="padding-top: 50px">THƯƠNG HIỆU NỔI BẬT</p>
+
+            <div class="col container">
+                <div class="col-md-3 col-sm-3 col-lg-12 col-sm-3">
+                    <img id="logo" src="~/Content/images/logo1.png" height="250" width="250">
+                    <img id="logo" src="~/Content/images/logo2.png" height="250" width="250">
+                    <img id="logo" src="~/Content/images/logo3.png" height="250" width="250">
+                    <img id="logo" src="~/Content/images/logo4.png" height="250" width="250">
+                </div>
+            </div>
+
+            <div class="col container">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="footercontent">
+                        <p style="font-weight: bold;"> <font color="orange">THÔNG TIN</font> CÔNG TY </p>
+                        <hr class="hr_footer" align="left" />
+                        <p style="font-size: 20px; font-weight: bold; text-align: left; color: #555555">CÔNG TY TNHH VFITNESS</p>
+                        <p style="font-size: 17px;  text-align: left; color: #687777">
+                            Nhà Nhập Khẩu chính hãng và phân phối Ultimate Nutrition, Elite Labs USA, Hammer Nutrition và Go-Fit tại Việt Nam.
+                            <br />
+                            Trụ sở: 80/11B Lê Văn Thọ, Phường 8, Quận Gò Vấp, Tp. Hồ Chí Minh
+                            <br />
+                            Điện thoại: 0774051305
+                            <br />
+                            Email: 0vfitness0@gmail.com
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="footercontent">
+                        <p style="font-weight: bold;"> <font color="orange">KẾT NỐI</font> VỚI CHÚNG TÔI </p>
+                        <hr class="hr_footer" width="20%" align="left" />
+                        <div class="footer-social">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-class">
+        <p>© 2020 Vfitness All Rights Reserved</p>
+        </div>
+</body>
+</html>

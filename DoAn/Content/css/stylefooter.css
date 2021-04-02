@@ -1,0 +1,87 @@
+﻿.footer-social ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer-social li {
+    float: left;
+    list-style: none;
+    padding: 0px 20px 0px 20px;
+}
+
+.footer-social ul li a {
+    box-shadow: 0 0 0 7px #303030;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    border-radius: 50%;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+}
+
+#footer {
+    display: block;
+    height: auto;
+    background-color: black;
+    padding-bottom: 15px;
+}
+
+.footerbrand {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: Times New Roman;
+}
+
+.footercontent {
+    margin-left: 50px;
+    color: white;
+    text-align: left;
+    font-size: 24px;
+    font-family: Times New Roman;
+}
+
+.hr_footer {
+    border-top: 5px solid #ff6a00;
+    width: 25%;
+    height: 5px;
+}
+
+.text-center {
+    background: rgb(128, 128, 128);
+    color: white;
+}
+
+/*Responsive*/
+@media (max-width: 700px) {
+    .footerbrand {
+        font-size: 19px;
+    }
+
+    #logo {
+        height: 150px;
+        width: 150px;
+    }
+
+    #footercontent {
+        font-size: 20px;
+    }
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: orangered;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+

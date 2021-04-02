@@ -1,0 +1,46 @@
+﻿@{
+      ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_Contact.cshtml";
+}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBF8EmPaz1r8c-qcGGgzz5oUboSwGHBEY&callback=inMap">
+    </script>
+    <script>
+        function inMap() {
+            var uluru = { lat: 10.841576, lng: 106.656628 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: "Dinh Dưỡng Thể Thao",
+            });
+            marker.addListener("click", () => {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+<div class="container">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <h2 style="font-weight:bold;">THÔNG  TIN LIÊN HỆ</h2>
+            <p style="font-size:18px;">Công ty TNHH VFitness <br /> Địa chỉ: 80/11B Lê Văn Thọ, Phường  8, Quận Gò Vấp<br />Số điện thoại: 0774051305</p>
+</div>
+        <div class="col-md-6">
+            <h2 style="font-weight:bold;">BẢN ĐỒ</h2>
+            <div id="map">
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+

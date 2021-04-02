@@ -1,0 +1,61 @@
+﻿@model DoAn.Models.ThanhVien
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/_RegisterLayout.cshtml";
+}
+    <div class=" container">
+        <div class=" register">
+            <h1>ĐĂNG KÍ THÀNH VIÊN</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true)
+        <div class="col-md-6">
+            <h3>THÔNG TIN CÁ NHÂN</h3>
+             @Html.Hidden("MaLoaiTV", 2)@*Set Quyền Khách Hàng*@
+            <div>
+                @Html.LabelFor(model => model.HoTen)
+                @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(model => model.DiaChi)
+                @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(model => model.SoDienThoai)
+                @Html.TextBoxFor(model => model.SoDienThoai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(model => model.Email)
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3>THÔNG TIN ĐĂNG NHẬP</h3>
+            <div>
+                @Html.LabelFor(model => model.TaiKhoan)
+                @Html.TextBoxFor(model => model.TaiKhoan, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(model => model.MatKhau)
+                @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <button class="btn btn-warning" type="submit">Xác nhận</button>
+        </div>
+                <div class="clearfix"> </div>
+            }
+        </div>
+    </div>
+<h1 style="color:red">@ViewBag.ThongBao</h1>

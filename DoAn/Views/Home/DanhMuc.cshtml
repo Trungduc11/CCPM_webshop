@@ -1,0 +1,9 @@
+﻿@model List<DoAn.Models.LoaiSanPham>
+    <ul class="menu">
+        @foreach (var item in Model)
+        {
+            <li class="item1">
+                <a href="@Url.Action("SanPhamDanhMuc","SanPham",new {@maloai = item.MaLoaiSP})">@item.TenLoai</a>
+            </li>
+        } 
+    </ul>

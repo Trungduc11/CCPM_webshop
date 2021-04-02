@@ -1,0 +1,138 @@
+﻿@using DoAn.Models;
+@model List<ItemGioHang>
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Layout/_Cart.cshtml";
+}
+@if (Model.Count == 0)
+{
+    <div class="container">
+        <img src="https://salt.tikicdn.com/desktop/img/mascot@2x.png" alt="" class="center-block">
+        <p class="text-center" style="background-color:white;color:red;">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+        <a class="item_add" href="/"><p style="width:300px;" class="number item_price center-block"><i></i>Tiếp Tục mua hàng</p></a>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="check">
+            <h1>Giỏ hàng (@ViewBag.TongSoLuong sản phẩm)</h1>
+            <div class="col-md-9 cart-items">
+                @foreach (var item in Model)
+                {
+                <div class="cart-header">
+                    <div style="float:right">
+                        <div class="close2" onclick="location.href='@Url.Action("XoaGioHang",new { @MaSP=item.MaSP})'"> </div>
+                    </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="@Url.Content("~/Content/hinhanhsp/"+item.HinhAnh)" height="200" width="100" />
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#" style="text-decoration:none;color:orangered">@item.TenSP</a></h3>
+                            <h3 style="display:inline;">Số lượng: @item.SoLuong</h3> <button class="btn btn-warning" onclick="location.href='@Url.Action("SuaGioHang",new { @MaSP=item.MaSP})'"><i class="far fa-edit"></i></button>
+                            <h3>Đơn giá: @item.DonGia.ToString("#,##") vnđ</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="col-md-3 cart-total">
+                <button type="submit" class="form-control" onclick="window.location.href='@Url.Action("Index","Home")'" style="background-color:orangered;color:white">Tiếp tục mua hàng</button>
+                <div class="price-details">
+                    <h3 class="text-center" style="background-color:white;color:black">THANH TOÁN</h3>
+                    <div class="clearfix"></div>
+                </div>
+                @using (Html.BeginForm("DatHang", "GioHang"))
+                {
+                    if (Session["TaiKhoan"] == null)
+                    {
+            <div class="price-details">
+                <h3 class="text-center" style="background-color:white;color:black">THÔNG TIN KHÁCH HÀNG</h3>            
+                @Html.Label("Họ tên")
+                <br />
+                @Html.TextBox("TenKH")
+                <p style="color:red;" id="TB_HoTen"></p>
+                <div class="clearfix"></div>
+                @Html.Label("Địa chỉ")
+                <br />
+                @Html.TextBox("DiaChi")
+                <p style="color:red;" id="TB_DiaChi"></p>
+                <div class="clearfix"></div>
+                @Html.Label("Email")
+                <br />
+                @Html.TextBox("Email")
+                <p style="color:red;" id="TB_Email"></p>
+                <div class="clearfix"></div>
+                @Html.Label("SĐT")
+                <br />
+                @Html.TextBox("SoDienThoai")
+                <p style="color:red;" id="TB_SoDienThoai"></p>
+                <div class="clearfix"></div>
+
+            </div>
+                    }
+                    <ul class="total_price">
+                        <li class="last_price"> <h4>TỔNG TIỀN</h4></li>
+                        <li class="last_price"><h4 class="item_price" style="color: red;">@ViewBag.TongTien.ToString("#,##") VNĐ</h4></li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                    <div class="clearfix"></div>
+                    <button class="form-control" type="submit" style="background-color:orangered;color:white" id="btnDatHang">Tiến hành đặt hàng</button>
+                }
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+}
+<script>
+    $("#btnDatHang").click(function () {
+        var loi = 0;
+        if ($("#TenKH").val() == "")
+        {
+            $("#TB_HoTen").text("Không được bỏ trống");
+            loi++;
+        }
+        else
+        {
+            $("#TB_HoTen").text("");
+        }
+
+        if ($("#DiaChi").val() == "")
+        {
+            $("#TB_DiaChi").text("Không được bỏ trống");
+            loi++;
+        }
+        else
+        {
+            $("#TB_DiaChi").text("");
+        }
+    
+        if ($("#Email").val() == "")
+        {
+            $("#TB_Email").text("Không được bỏ trống");
+            loi++;
+        }
+        else
+        {
+            $("#TB_Email").text("");
+        }
+
+        if ($("#SoDienThoai").val() == "")
+        {
+            $("#TB_SoDienThoai").text("Không được bỏ trống");
+            loi++;
+        }
+        else
+        {
+            $("#TB_SoDienThoai").text("");
+        }
+
+        if (loi != 0)
+        {
+            return false;
+        }
+    });
+</script>
+

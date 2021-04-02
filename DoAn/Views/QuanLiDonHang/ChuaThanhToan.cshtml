@@ -1,0 +1,79 @@
+﻿@using DoAn.Models;
+@model IEnumerable<DonDatHang>
+@{
+    ViewBag.Title = "ChuaThanhToan";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 20, canSort: false);
+}
+<h2>QUẢN LÍ ĐƠN HÀNG</h2>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="@Url.Action("ChuaThanhToan","QuanLiDonHang")" style="font-weight:bold;">Chưa Thanh Toán</a></li>
+    <li role="presentation"><a href="@Url.Action("DaGiaoDaThanhToan","QuanLiDonHang")">Đã Giao Đã Thanh Toán</a></li>
+</ul>
+<br />
+@using (Html.BeginForm("TimChuaThanhToan", "QuanLiDonHang"))
+{
+    <input type="text" name="sTuKhoa" class="form-control" style="width:15%;display:inline;" placeholder="Mã đơn hàng cần tìm" />
+    <input type="submit" value="Tìm Kiếm" class="btn btn-success" />
+    <br />
+    <br />
+    @grid.GetHtml(
+tableStyle: "table table-bordered",
+headerStyle: "gridHead",
+footerStyle: "gridFooter",
+columns: grid.Columns(
+    grid.Column("MaDDH", "Mã Đơn Hàng", style: "design"),
+    grid.Column("MaKH", "Họ Tên KH", style: "design", format: p => p.MaKH != null ? p.KhachHang.TenKH : ""),
+    grid.Column("MaKH", "Địa chỉ", style: "design", format: p => p.MaKH != null ? p.KhachHang.DiaChi : ""),
+    grid.Column("NgayDat", "Ngày Đặt", style: "design"),
+    grid.Column("TinhTrangGiaoHang", "Tình Trạng Giao Hàng", style: "design", format: p => Html.Action("chuyen", "QuanLiDonHang", new { @a = p.TinhTrangGiaoHang })),
+    grid.Column("DaThanhToan", "Đã Thanh Toán", style: "design", format: p => Html.Action("chuyen", "QuanLiDonHang", new { @a = p.DaThanhToan })),
+    grid.Column(format: p => Html.ActionLink("Duyệt đơn hàng", "DuyetDonHang", new { @id = p.MaDDH, @email = p.KhachHang.Email, @tenkh = p.Khachhang.TenKH }, new { @class = "btn btn-success" }), style: "chinhsua")
+    ))
+}
+
+<style>
+    .gridHead {
+        text-align: center;
+        font-weight: bold;
+        color: #FFF;
+        background: #264e68;
+        background: -webkit-linear-gradient(#335872, #264e68);
+        background: -o-linear-gradient(#335872, #264e68);
+        background: -moz-linear-gradient(#335872, #264e68);
+        background: linear-gradient(#335872, #264e68);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .gridFooter {
+        text-align: center;
+        width: 400px;
+        font-weight: bold;
+        background-color: #264e68;
+    }
+
+        .gridFooter a {
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px 10px 10px 10px;
+        }
+
+            .gridFooter a:hover:not(.active) {
+                background-color: black;
+            }
+
+    .design {
+        width: 120px;
+        text-align: center;
+    }
+
+    .chinhsua {
+        width: 100px;
+        text-align: center;
+    }
+</style>

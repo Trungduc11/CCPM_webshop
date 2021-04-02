@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "ChiTietDH";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 10, canSort: false);
+}
+
+<h2>Chi Tiết Đơn Hàng @ViewBag.MaDH</h2>
+<br />
+@grid.GetHtml(
+      tableStyle: "table table-bordered",
+      headerStyle: "gridHead",
+      footerStyle: "gridFooter",
+      columns: grid.Columns(
+      grid.Column("MaDDH", "Mã Đơn Hàng", style: "design"),
+      grid.Column("MaSP", "Tên Sản Phẩm", format: p => p.MaSP != null ? p.SanPham.TenSP : "", style: "design"),
+      grid.Column("DonGia", "Đơn Giá", style: "design"),
+      grid.Column("SoLuong", "Số Lượng", style: "design")
+  ))
+<div style="text-align: right; font-size:20px; font-weight:bold;">Số Lượng: @ViewBag.SoLuong</div>
+<div style="text-align: right; font-size:20px; font-weight:bold;">Tổng tiền: @ViewBag.TongTien.ToString("#,##") VND</div>
+<div style="float:right;"><button type="button" onclick="window.history.go(-1)" class="btn btn-primary">Trở về</button></div>
+<style>
+    .gridHead {
+        text-align: center;
+        font-weight: bold;
+        color: #FFF;
+        background: #264e68;
+        background: -webkit-linear-gradient(#335872, #264e68);
+        background: -o-linear-gradient(#335872, #264e68);
+        background: -moz-linear-gradient(#335872, #264e68);
+        background: linear-gradient(#335872, #264e68);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .gridFooter {
+        text-align: center;
+        width: 400px;
+        font-weight: bold;
+        background-color: #264e68;
+    }
+
+        .gridFooter a {
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px 10px 10px 10px;
+        }
+
+            .gridFooter a:hover:not(.active) {
+                background-color: black;
+            }
+
+    .design {
+        width: 120px;
+        text-align: center;
+    }
+
+    .chinhsua {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+
+

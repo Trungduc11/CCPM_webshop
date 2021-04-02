@@ -1,0 +1,26 @@
+﻿@using DoAn.Models;
+@model IEnumerable<SanPham>
+<h3 style="font-weight:bold"><font style="color:orangered">SẢN PHẨM</font> TƯƠNG TỰ</h3>
+<hr class="hr_footer" align="left" style="width:130px;"/>
+<div class=" bottom-product">
+    @foreach (var item in Model.Take(3))
+    {
+    <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+        <div class="product-at ">
+            <a href="@Url.Action("XemChitietSanPham","SanPham", new { @idsp= item.MaSP,@tensp=item.TenDuongDan})">
+                <img class="center-block" src="@Url.Content("~/Content/hinhanhsp/"+item.HinhAnh)" height="250" width="150" />
+                @if (item.SoLuongTon <= 0)
+                {
+                    <div class="pro-grid">
+                        <span class="buy-in">Hết hàng</span>
+                    </div>
+                }
+            </a>
+        </div>
+        <p class="tun">@item.TenSP</p>
+        <h5 class="text-center">@item.DonGia.Value.ToString("#,##") VNĐ</h5>
+        @Ajax.ActionLink("Mua", "ThemGioHangAjax", "GioHang", new { @MaSP = item.MaSP, @strURL = Request.Url.ToString() }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divGioHang", InsertionMode = InsertionMode.Replace }, new { @class = "form-control btn btn-warning", @style = "background-color:orangered" })
+    </div>
+    }
+    <div class="clearfix"> </div>
+</div>

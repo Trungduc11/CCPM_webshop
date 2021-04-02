@@ -1,0 +1,11 @@
+﻿<div id="divGioHang" class="cart box_1" style="margin-top:-7px;">
+    <a href="@Url.Action("XemGioHang","GioHang")">
+        <h3>
+            <div class="total">
+                 @ViewBag.TongTien.ToString("#,##") VND (<span>@ViewBag.TongSoLuong</span> sp)
+            </div>
+            <img src="~/Content/images/cart.png" alt="" />
+        </h3>
+    </a>
+    <p style="margin-top:-5px;"><a href="@Url.Action("XemGioHang","GioHang")" class="simpleCart_empty">Giỏ Hàng</a></p>
+</div>

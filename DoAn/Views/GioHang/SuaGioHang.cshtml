@@ -1,0 +1,59 @@
+﻿@using DoAn.Models
+@model ItemGioHang
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/_RegisterLayout.cshtml";
+}
+@{
+    List<ItemGioHang> lstGioHang = ViewBag.GioHang as List<ItemGioHang>;
+}
+    <div class="container">
+        <div class="check">
+            <h1>Giỏ hàng (@ViewBag.TongSoLuong sản phẩm)</h1>
+            <div class="col-md-9 cart-items">
+                @foreach (var item in lstGioHang)
+                {
+                    if (Model.MaSP == item.MaSP)
+                    {
+                        using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+                        {
+                            <div class="cart-header">
+                            <div style="float:right">
+                                <input class="btn btn-success" type="submit" value="Cập Nhật" />
+                            </div>
+                            <div class="cart-sec simpleCart_shelfItem">
+                            <div class="cart-item cyc">
+                                <img src="@Url.Content("~/Content/hinhanhsp/" + item.HinhAnh)" height="200" width="100" />
+                            </div>
+                            <div class="cart-item-info">
+                                <h3><a href="#" style="text-decoration:none;color:orangered">@item.TenSP @Html.Hidden("MaSP", item.MaSP)</a></h3>
+                                <h3>Số lượng: @Html.TextBox("SoLuong", item.SoLuong,new { @style="width:25px;"})</h3>
+                                <h3>Đơn giá: @item.DonGia.ToString("#,##") vnđ</h3>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>
+                             </div>
+                        }
+                    }
+                }
+            </div>
+            <div class="col-md-3 cart-total">
+                <a class="continue" href="\" style="text-decoration:none;">Tiếp tục mua hàng</a>
+                <div class="price-details">
+                    <h3>THANH TOÁN</h3>
+                    <div class="clearfix"></div>
+                </div>
+                <ul class="total_price">
+                    <li class="last_price"> <h4>TỔNG TIỀN</h4></li>
+                    <li class="last_price"><h4 class="item_price" style="color: red;">@ViewBag.TongTien.ToString("#,##") VNĐ</h4></li>
+                    <div class="clearfix"> </div>
+                </ul>
+
+
+                <div class="clearfix"></div>
+                <a class="order" href="#" style="text-decoration:none;">Tiến hành đặt hàng</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+

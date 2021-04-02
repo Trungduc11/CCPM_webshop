@@ -1,0 +1,1308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F52D30C8-BF72-425D-B2D7-505C305D79E5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoAn</RootNamespace>
+    <AssemblyName>DoAn</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\QuanLiDonHangController.cs" />
+    <Compile Include="Controllers\QuanLiNhapHangController.cs" />
+    <Compile Include="Controllers\QuanLiSanPhamController.cs" />
+    <Compile Include="Controllers\QuanLiThanhVienController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanHang.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHang.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanHang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHang.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietDonDatHang.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietPhieuNhap.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonDatHang.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemGioHang.cs" />
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiSanPham.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiThanhVien.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiThanhVien_Quyen.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\SanPhamMetaData.cs" />
+    <Compile Include="Models\MetaData\ThanhVienMetadata.cs" />
+    <Compile Include="Models\NhaSanXuat.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Phieunhap.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Quyen.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SanPham.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThanhVien.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\BanHang.mdf" />
+    <Content Include="App_Data\BanHang_log.ldf">
+      <DependentUpon>BanHang.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\memenu.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\stylefooter.css" />
+    <Content Include="Content\hinhanhsp\100-IsoBlend-Chocolate-1.png" />
+    <Content Include="Content\hinhanhsp\100-IsoBlend-Chocolate-Peanut-Butter.png" />
+    <Content Include="Content\hinhanhsp\100-IsoBlend-Vanilla.png" />
+    <Content Include="Content\hinhanhsp\100-True-Whey-Cookies-and-Cream-600x600.jpg" />
+    <Content Include="Content\hinhanhsp\100-True-Whey-Dble-Rich-Chocolate-600x600.png" />
+    <Content Include="Content\hinhanhsp\100-True-Whey-Vanilla-Cheesecake-600x600.jpg" />
+    <Content Include="Content\hinhanhsp\100-WHEY-CHOCOLATE.png" />
+    <Content Include="Content\hinhanhsp\100-WHEY-RASPBERRY.png" />
+    <Content Include="Content\hinhanhsp\100-WHEY-VANILLA.png" />
+    <Content Include="Content\hinhanhsp\61sR4ayGIAL._SY879_.jpg" />
+    <Content Include="Content\hinhanhsp\813TNAuw8GL._SY355_.jpg" />
+    <Content Include="Content\hinhanhsp\938d318f0ee4f0d6cb022acb14a31272-1.jpg" />
+    <Content Include="Content\hinhanhsp\BCAA-2.png" />
+    <Content Include="Content\hinhanhsp\BCAA-3.png" />
+    <Content Include="Content\hinhanhsp\BestTastingWhey-5lb-Cookies-and-Cream.png" />
+    <Content Include="Content\hinhanhsp\BestTastingWhey-5lb-Double-Rich-Chocolate-Crunch.png" />
+    <Content Include="Content\hinhanhsp\BestTastingWhey-5lb-Vanilla-Cheesecake.png" />
+    <Content Include="Content\hinhanhsp\daily-complete-1.png" />
+    <Content Include="Content\hinhanhsp\ELFG13.png" />
+    <Content Include="Content\hinhanhsp\ENDUROLYESTE.png" />
+    <Content Include="Content\hinhanhsp\ExtremeMMG-25lb-Strawberry-300x450.png" />
+    <Content Include="Content\hinhanhsp\GEL.png" />
+    <Content Include="Content\hinhanhsp\HEED-MANDARIN-ORANGE-16.png" />
+    <Content Include="Content\hinhanhsp\HEED-SINGLE.png" />
+    <Content Include="Content\hinhanhsp\hydrocoll-01-01-300x300.png" />
+    <Content Include="Content\hinhanhsp\ISO-COOL-5LBS.png" />
+    <Content Include="Content\hinhanhsp\ISO-SANSATION-CHOCOLATE-2LBS.png" />
+    <Content Include="Content\hinhanhsp\ISO-SANSATION-STRAWBERRY-2LBS.png" />
+    <Content Include="Content\hinhanhsp\ISO-SANSATION-VANILLA-2LBS.png" />
+    <Content Include="Content\hinhanhsp\iso-sensatio93-vanilla-5lbs_master.jpg" />
+    <Content Include="Content\hinhanhsp\ISO-SENSATION-CHOCOLATE-5LBS.png" />
+    <Content Include="Content\hinhanhsp\MMG-10lb-Cookies-and-Cream.png" />
+    <Content Include="Content\hinhanhsp\MMG-10lb-Dble-Rich-Chocolate.png" />
+    <Content Include="Content\hinhanhsp\MMG-10lb-Vanilla.png" />
+    <Content Include="Content\hinhanhsp\MMG-20lb-Cookies-and-Cream.png" />
+    <Content Include="Content\hinhanhsp\MMG-20lb-Dbe-Rich-Chocolate-1.png" />
+    <Content Include="Content\hinhanhsp\MMG-20lb-Vanilla-Ice-Cream.png" />
+    <Content Include="Content\hinhanhsp\MMG-5lb-Dble-Rich-Chocolate-2.png" />
+    <Content Include="Content\hinhanhsp\MMG-5lb-Strawberry-Milkshake-2.png" />
+    <Content Include="Content\hinhanhsp\MMG-5lb-Vanilla-Ice-Cream-3.png" />
+    <Content Include="Content\hinhanhsp\Pre-Cuts-White-Raspberry.png" />
+    <Content Include="Content\hinhanhsp\PRE-RAGE_PinkLemonade.png" />
+    <Content Include="Content\hinhanhsp\REDZONE-300x450.png" />
+    <Content Include="Content\hinhanhsp\Screen-Shot-2020-03-25-at-09.17.31.png" />
+    <Content Include="Content\hinhanhsp\Screen-Shot-2020-03-25-at-09.17.41.png" />
+    <Content Include="Content\hinhanhsp\TESTOSTRO-GROW-HP-300x450.png" />
+    <Content Include="Content\hinhanhsp\TRUE-Amino-Pineapple-Mango-1.png" />
+    <Content Include="Content\hinhanhsp\True-BCAA-Pineapple-Mango.png" />
+    <Content Include="Content\hinhanhsp\True-Creatine-6-Pineapple-Mango-300x450.png" />
+    <Content Include="Content\hinhanhsp\TRUE-PROTEIN-BAR.png" />
+    <Content Include="Content\hinhanhsp\ULTRA-RUPPED-300x450.png" />
+    <Content Include="Content\hinhanhsp\WHEY-CHOCOLATE-2LBS.png" />
+    <Content Include="Content\hinhanhsp\WHEY-RASPBERRY-2LBS.png" />
+    <Content Include="Content\hinhanhsp\WHEY-VANILLA-2LBS.png" />
+    <Content Include="Content\images\avatar.png" />
+    <Content Include="Content\images\b1.png" />
+    <Content Include="Content\images\b2.jpg" />
+    <Content Include="Content\images\b3.jpg" />
+    <Content Include="Content\images\b4.jpg" />
+    <Content Include="Content\images\bg.png" />
+    <Content Include="Content\images\cart.png" />
+    <Content Include="Content\images\close_1.png" />
+    <Content Include="Content\images\co.png" />
+    <Content Include="Content\images\icon_logo.png" />
+    <Content Include="Content\images\img-sprite.png" />
+    <Content Include="Content\images\logo9.png" />
+    <Content Include="Content\images\logo1.png" />
+    <Content Include="Content\images\logo2.png" />
+    <Content Include="Content\images\logo3.png" />
+    <Content Include="Content\images\logo4.png" />
+    <Content Include="Content\images\new1.jpg" />
+    <Content Include="Content\images\new2.png" />
+    <Content Include="Content\images\new3.jpg" />
+    <Content Include="Content\images\new4.png" />
+    <Content Include="Content\images\stack.png" />
+    <Content Include="Content\images\success.jpg" />
+    <Content Include="Content\images\success.png" />
+    <Content Include="Content\images\truycap.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\js\jquery.flexslider.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\memenu.js" />
+    <Content Include="Content\js\responsiveslides.min.js" />
+    <Content Include="Content\js\simpleCart.min.js" />
+    <Content Include="Content\kendo\2020.2.513\Black\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Black\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Black\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Black\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Black\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Black\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Black\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Black\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\BlueOpal\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Default\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Default\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Default\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Default\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Default\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Default\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Default\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Fiori\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Flat\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Flat\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Flat\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Flat\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Flat\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Flat\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Flat\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\HighContrast\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\images\back.png" />
+    <Content Include="Content\kendo\2020.2.513\images\kendoui.svg" />
+    <Content Include="Content\kendo\2020.2.513\images\wp8_icons.png" />
+    <Content Include="Content\kendo\2020.2.513\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\2020.2.513\kendo.black.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.black.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.blueopal.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.blueopal.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.bootstrap-v4.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-fiori.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-material.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-nova.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-office365.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.black.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.blueopal.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.default.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.fiori.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.flat.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.material.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.materialblack.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.metro.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.metroblack.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.moonlight.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.nova.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.office365.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.silver.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.uniform.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.default-v2.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.default.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.default.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.fiori.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.fiori.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.flat.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.flat.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.highcontrast.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.highcontrast.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.material-v2.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.material.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.material.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.materialblack.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.materialblack.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metro.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metro.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metroblack.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metroblack.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.all.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.android.dark.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.android.light.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.blackberry.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.common.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.fiori.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.flat.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.ios.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.material.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.meego.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.nova.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.office365.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.wp8.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.moonlight.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.moonlight.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.nova.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.nova.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.office365.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.office365.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.rtl.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.silver.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.silver.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.uniform.min.css" />
+    <Content Include="Content\kendo\2020.2.513\kendo.uniform.mobile.min.css" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\MaterialBlack\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Material\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Material\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Material\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Material\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Material\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Material\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Material\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\MetroBlack\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Metro\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Metro\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Metro\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Metro\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Metro\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Metro\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Metro\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Moonlight\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Nova\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Nova\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Nova\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Nova\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Nova\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Nova\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Nova\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Office365\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Office365\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Office365\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Office365\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Office365\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Office365\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Office365\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Silver\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Silver\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Silver\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Silver\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Silver\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Silver\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Silver\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots1.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots10.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots11.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots12.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots13.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots2.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots3.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots4.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots5.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots6.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots7.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots8.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\dots9.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\glass.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\highlight.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\hue.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\image-default.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\leather1.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\leather2.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\noise.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\stripe1.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\stripe2.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\stripe3.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\stripe4.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\stripe5.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\stripe6.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\transparency-reversed.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\transparency.png" />
+    <Content Include="Content\kendo\2020.2.513\textures\transtexture.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\editor.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\imagebrowser.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\indeterminate.gif" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\loading-image.gif" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\loading.gif" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\loading_2x.gif" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\markers.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\markers_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\slider-h.gif" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\slider-v.gif" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\sprite.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\sprite_2x.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\sprite_kpi.png" />
+    <Content Include="Content\kendo\2020.2.513\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\kendo\2020.2.513\kendo.black.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.black.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.blueopal.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.blueopal.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.bootstrap-v4.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.bootstrap.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.bootstrap.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-bootstrap.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-fiori.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-material.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-nova.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common-office365.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.common.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.black.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.blueopal.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.bootstrap.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.default.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.fiori.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.flat.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.highcontrast.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.material.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.materialblack.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.metro.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.metroblack.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.moonlight.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.nova.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.office365.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.silver.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.dataviz.uniform.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.default-v2.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.default.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.default.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.fiori.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.fiori.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.flat.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.flat.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.highcontrast.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.highcontrast.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.material-v2.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.material.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.material.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.materialblack.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.materialblack.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metro.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metro.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metroblack.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.metroblack.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.all.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.android.dark.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.android.light.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.blackberry.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.common.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.fiori.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.flat.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.ios.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.material.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.meego.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.nova.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.office365.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.mobile.wp8.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.moonlight.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.moonlight.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.nova.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.nova.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.office365.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.office365.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.rtl.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.silver.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.silver.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.uniform.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\kendo.uniform.mobile.min.css.map" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="Content\kendo\2020.2.513\fonts\glyphs\WebComponentsIcons.woff" />
+    <Content Include="Content\kendo\2020.2.513\images\kendoui.ttf" />
+    <Content Include="Content\kendo\2020.2.513\images\kendoui.woff" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\js\jquery.min.map" />
+    <EntityDeploy Include="Models\BanHang.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BanHang.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Content\LayoutAdmin\css\bootstrap.css" />
+    <Content Include="Content\LayoutAdmin\css\clndr.css" />
+    <Content Include="Content\LayoutAdmin\css\jqvmap.css" />
+    <Content Include="Content\LayoutAdmin\css\nav.css" />
+    <Content Include="Content\LayoutAdmin\css\style.css" />
+    <Content Include="Content\LayoutAdmin\images\ar2.png" />
+    <Content Include="Content\LayoutAdmin\images\arrows.png" />
+    <Content Include="Content\LayoutAdmin\images\avatar.jpg" />
+    <Content Include="Content\LayoutAdmin\images\avatar1.jpg" />
+    <Content Include="Content\LayoutAdmin\images\avatar2.jpg" />
+    <Content Include="Content\LayoutAdmin\images\img-sprite.png" />
+    <Content Include="Content\LayoutAdmin\images\into.png" />
+    <Content Include="Content\LayoutAdmin\images\into1.png" />
+    <Content Include="Content\LayoutAdmin\images\logo.png" />
+    <Content Include="Content\LayoutAdmin\images\pp.jpg" />
+    <Content Include="Content\LayoutAdmin\images\pp0.jpg" />
+    <Content Include="Content\LayoutAdmin\images\pp01.jpg" />
+    <Content Include="Content\LayoutAdmin\images\settings.png" />
+    <Content Include="Content\LayoutAdmin\images\tick-mark.png" />
+    <Content Include="Content\LayoutAdmin\js\Chart1.js" />
+    <Content Include="Content\LayoutAdmin\js\clndr.js" />
+    <Content Include="Content\LayoutAdmin\js\easyResponsiveTabs.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.easydropdown.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.min.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.nicescroll.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.vmap.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.vmap.sampledata.js" />
+    <Content Include="Content\LayoutAdmin\js\jquery.vmap.world.js" />
+    <Content Include="Content\LayoutAdmin\js\main.js" />
+    <Content Include="Content\LayoutAdmin\js\moment-2.2.1.js" />
+    <Content Include="Content\LayoutAdmin\js\site.js" />
+    <Content Include="Content\LayoutAdmin\js\underscore-min.js" />
+    <Content Include="Models\BanHang.edmx.diagram">
+      <DependentUpon>BanHang.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Models\BanHang.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BanHang.edmx</DependentUpon>
+      <LastGenOutput>BanHang.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BanHang.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BanHang.edmx</DependentUpon>
+      <LastGenOutput>BanHang.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\kendo.modernizr.custom.js" />
+    <Content Include="Scripts\kendo\2020.2.513\angular.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\jquery.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\jszip.min.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.all-vsdoc.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.all.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.angular.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.badge.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.breadcrumb.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.chat.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.color.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.columnmenu.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.columnsorter.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.xml.min.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.dataviz-vsdoc.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.barcode.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.chart.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.core.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.diagram.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.gauge.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.map.min.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.dataviz.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.mobile.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.qrcode.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.sparkline.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.stock.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.themes.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.treemap.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dateinput.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.daterangepicker.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dialog.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dom.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.drawer.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.drawing.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dropdowntree.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.editor.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.excel.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filebrowser.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filemanager.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filter.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filtercell.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filtermenu.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.floatinglabel.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.form.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.gantt.list.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.gantt.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.gantt.timeline.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.grid.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.groupable.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.imagebrowser.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.listbox.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mediaplayer.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.menu.min.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.mobile-vsdoc.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.button.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.collapsible.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.drawer.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.listview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.loader.min.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.mobile.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.modalview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.navbar.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.splitview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.switch.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.multicolumncombobox.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.multiviewcalendar.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.ooxml.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pane.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pdf.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pdfviewer.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pivot.configurator.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pivot.fieldmenu.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pivotgrid.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.rating.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.reorderable.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.responsivepanel.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.ripple.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.agendaview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.dayview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.monthview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.recurrence.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.timelineview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.view.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.spreadsheet.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.stepper.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.switch.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.textbox.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.tilelayout.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.timeline.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.toolbar.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.touch.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.treelist.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.treeview.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.treeview.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.upload.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.view.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.virtuallist.min.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.web-vsdoc.js" />
+    <None Include="Scripts\kendo\2020.2.513\kendo.web.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.window.min.js" />
+    <Content Include="Scripts\kendo\2020.2.513\pako_deflate.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="test.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\kendo\2020.2.513\jquery.min.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.angular.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.badge.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.breadcrumb.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.chat.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.color.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.columnmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.columnsorter.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.barcode.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.chart.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.core.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.diagram.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.gauge.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.map.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.qrcode.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.sparkline.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.stock.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.themes.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dataviz.treemap.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dateinput.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.daterangepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dialog.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dom.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.drawing.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.dropdowntree.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.editor.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.excel.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filemanager.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filter.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filtercell.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.filtermenu.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.floatinglabel.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.form.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.gantt.list.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.gantt.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.gantt.timeline.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.grid.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.groupable.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.imagebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.listbox.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mediaplayer.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.button.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.collapsible.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.modalview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.navbar.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.splitview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.multicolumncombobox.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.multiviewcalendar.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.ooxml.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pdf.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pdfviewer.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pivot.configurator.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pivot.fieldmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.pivotgrid.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.rating.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.reorderable.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.responsivepanel.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.ripple.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.agendaview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.dayview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.monthview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.recurrence.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.timelineview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scheduler.view.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.spreadsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.stepper.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.textbox.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.tilelayout.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.timeline.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.timezones.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.toolbar.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.touch.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.treelist.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.treeview.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.treeview.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.upload.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.virtuallist.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendo\2020.2.513\kendo.window.min.js.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Layout\_HomeLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\MenuPartial.cshtml" />
+    <Content Include="Views\SanPham\SanPhamStyle1Partial.cshtml" />
+    <Content Include="Views\Layout\_NewLayout.cshtml" />
+    <Content Include="Views\News\News1.cshtml" />
+    <Content Include="Views\News\News2.cshtml" />
+    <Content Include="Views\News\News4.cshtml" />
+    <Content Include="Views\News\News3.cshtml" />
+    <Content Include="Views\Layout\_ProductLayout.cshtml" />
+    <Content Include="Views\SanPham\XemChitietSanPham.cshtml" />
+    <Content Include="Views\SanPham\SanPham.cshtml" />
+    <Content Include="Views\Home\DanhMuc.cshtml" />
+    <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\Layout\_RegisterLayout.cshtml" />
+    <Content Include="Views\Layout\HeaderTop.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\Layout\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\QuanLiSanPham\QuanLiSanPham.cshtml" />
+    <Content Include="Views\QuanLiSanPham\TaoMoi.cshtml" />
+    <Content Include="Views\QuanLiSanPham\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLiSanPham\Xoa.cshtml" />
+    <Content Include="Views\SanPham\SanPhamStyle2Partial.cshtml" />
+    <Content Include="Views\SanPham\SanPhamTuongTu.cshtml" />
+    <Content Include="Views\SanPham\SanPhamDanhMuc.cshtml" />
+    <Content Include="Views\QuanLiNhapHang\DSSPHetHang.cshtml" />
+    <Content Include="Views\QuanLiNhapHang\NhapHang.cshtml" />
+    <Content Include="Views\QuanLiDonHang\ChuaThanhToan.cshtml" />
+    <Content Include="Views\QuanLiDonHang\ChuaGiao.cshtml" />
+    <Content Include="Views\QuanLiDonHang\DaGiaoDaThanhToan.cshtml" />
+    <Content Include="Views\QuanLiDonHang\DuyetDonHang.cshtml" />
+    <Content Include="Views\Admin\DoanhThuThang.cshtml" />
+    <Content Include="Views\Admin\ChiTietDH.cshtml" />
+    <Content Include="Views\Home\LoiPhanQuyen.cshtml" />
+    <Content Include="Views\Admin\ChiTiet.cshtml" />
+    <Content Include="Views\Admin\ThanhVienDisplay.cshtml" />
+    <Content Include="Views\QuanLiThanhVien\QuanLiThanhVienAdmin.cshtml" />
+    <Content Include="Views\Admin\ThongKeTong.cshtml" />
+    <Content Include="Views\QuanLiThanhVien\ChinhSuaTV.cshtml" />
+    <Content Include="Views\QuanLiThanhVien\ThemThanhVien.cshtml" />
+    <Content Include="Views\QuanLiThanhVien\Xoa.cshtml" />
+    <Content Include="Views\QuanLiThanhVien\QuanLiThanhVienUser.cshtml" />
+    <Content Include="Views\Layout\_Cart.cshtml" />
+    <Content Include="Views\GioHang\DatHangThanhCong.cshtml" />
+    <Content Include="Views\Layout\_Contact.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59428</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59428/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

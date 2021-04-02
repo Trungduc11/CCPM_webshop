@@ -1,0 +1,63 @@
+﻿@using DoAn.Models;
+@model IEnumerable<SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_HomeLayout.cshtml";
+}
+@{
+    IEnumerable<SanPham> ListMoi = (IEnumerable<SanPham>)ViewBag.ListMoi;
+    IEnumerable<SanPham> ListMoi1 = (IEnumerable<SanPham>)ViewBag.ListMoi1;
+}
+<div style="margin-top:-260px;">
+    <img src="~/Content/images/bg.png" class="img-responsive"/>
+</div>
+<div class="container" style="padding-top:-300px">
+    @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", ListMoi)
+</div>
+
+<div class="container">
+    @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", ListMoi1)
+</div>
+
+<div class="container">
+    <h1 class="text-center" style="color:orange; background:white;">  TIN TỨC  </h1>
+    <div class="col-sm-3 col-md-3">
+        <div class="thumbnail img-center">
+            <img src="~/Content/images/new1.jpg" class="img-responsive">
+            <div class="caption">
+                <h4>HÃY TƯ DUY NHƯ 1 NGƯỜI TIÊU DÙNG THÔNG THÁI</h4>
+                <button class="btn btn-warning" type="button" onclick="window.location.href='@Url.Action("News1","News")'"> Xem chi tiết</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3 col-md-3">
+        <div class="thumbnail img-center">
+            <img src="~/Content/images/new2.png" class="img-responsive">
+            <div class="caption">
+                <h4>5 THỰC PHẨM GIÚP TĂNG ĐÁNG KỂ TESTOSTERONE</h4>
+                <button class="btn btn-warning"  type="button" onclick="window.location.href='@Url.Action("News2","News")'"> Xem chi tiết</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3 col-md-3">
+        <div class="thumbnail img-center">
+            <img src="~/Content/images/new3.jpg" class="img-responsive">
+            <div class="caption">
+                <h4>7 CÔNG CỤNG CỦA GLUTAMIN TRONG KHI LUYỆN TẬP</h4>
+                <button class="btn btn-warning"  type="button" onclick="window.location.href='@Url.Action("News3","News")'"> Xem chi tiết</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3 col-md-3">
+        <div class="thumbnail img-center">
+            <img src="~/Content/images/new4.png" class="img-responsive">
+            <div class="caption">
+                <h4>TÍNH THỜI GIAN TỐI ƯU DƯỠNG CHẤT TRONG CƠ THỂ</h4>
+                <button class="btn btn-warning"  type="button" onclick="window.location.href='@Url.Action("News4","News")'"> Xem chi tiết</button>
+            </div>
+        </div>
+    </div>
+</div>

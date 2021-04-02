@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DoAn.Models.SanPham>
+<h1 class="text-center" style="color:orange; background:white;">@Model.First().LoaiSanPham.TenLoai.ToUpper() MỚI NHẤT</h1>
+<div class="grid-in">
+    @foreach (var item in Model.Take(4))
+    {
+
+        <div class="col-sm-3 grid-top">
+            <a href="@Url.Action("XemChitietSanPham","SanPham", new {@idsp= item.MaSP,@tensp=item.TenDuongDan})" class="b-link-stripe b-animate-go  thickbox">
+                <img class="img-responsive" src="@Url.Content("~/Content/hinhanhsp/" + item.HinhAnh)" alt="">
+                <div class="b-wrapper">
+                    <h3 class="b-animate b-from-left b-delay03">
+                        <span style="text-align:left; position:absolute; top:1%; left:1%; font-size:15px; color:#fff; font-weight:bold;font-family:Tahoma">@Html.Raw(item.MoTa)</span>
+                    </h3>
+                </div>
+            </a>
+            <p><a href="@Url.Action("XemChitietSanPham","SanPham", new {@idsp= item.MaSP,@tensp=item.TenDuongDan})" style="font-weight:bold; margin-left:50px;">@item.TenSP</a></p>
+        </div>
+    }
+    <div class="clearfix"> </div>
+</div>
+

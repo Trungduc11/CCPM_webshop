@@ -1,0 +1,24 @@
+﻿@model List<DoAn.Models.NhaSanXuat>
+<div class=" h_menu4">
+    <ul class="memenu skyblue">
+        <li class="active grid"><a class="color1" href="@Url.Action("Index","Home")" style="font-weight:bold;">Trang chủ</a></li>
+        <li>
+            <a class="color1" href="#" style="font-weight:bold;">Sản Phẩm</a>
+            <div class="mepanel">
+                <div class="col">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col1">
+                            <div class="h_nav">
+                                <ul class="text-center" style="cursor:pointer; background:white;">
+                                    <li><a href="@Url.Action("SanPham","SanPham",new {@mansx=item.MaNSX,@tennsx=item.Thongtin})" style="text-decoration:none;font-size:15px;" class="color1">@item.TenNSX</a></li>  
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </li>
+        <li><a class="color1" href="@Url.Action("Index","LienHe")" style="font-weight:bold;">Liên hệ</a></li>
+    </ul>
+</div>

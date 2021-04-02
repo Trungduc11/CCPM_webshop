@@ -1,0 +1,181 @@
+﻿@using DoAn.Models
+<!--Load Topbar-->
+<div class="header-top">
+    <div class="container">
+        <div class="search">
+                @*Tạo action tìm kiếm*@
+                @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+                {
+                <input type="text" name="sTuKhoa" placeholder="Sản phẩm cần tìm" />
+                <input type="submit" value="Tìm kiếm">
+                }
+        </div>
+        <div class="header-left">
+            <ul>
+                @if (Session["TaiKhoan"] != null)
+                {
+                    ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                    <li class="avatar">
+                        <img src="~/Content/images/avatar.png" alt="Avatar" style="height:50px;width:65px;"></li>
+                    <li><span style="color:white">@tv.HoTen</span></li>
+                    <li style="margin-left:10px;"><a href="@Url.Action("DangXuat", "Home")">Đăng xuất</a></li>
+                }
+                else
+                {
+                    <li style="margin-top:10px;"><a id="btnDangNhap" href="#" data-toggle="modal">Đăng nhập</a></li>
+                    <li style="margin-top:10px;"><a href="@Url.Action("DangKy", "Home")">Đăng ký</a></li>
+                    }
+            </ul>
+            <!--Giỏ hàng partial-->
+            @Html.Action("GioHangPartial","GioHang")
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<!--Modal Login-->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="avatar">
+                    <img src="~/Content/images/avatar.png" alt="Avatar">
+                </div>
+                <h4 class="modal-title">ĐĂNG NHẬP</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                @using (Ajax.BeginForm("DangNhap", "Home", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "thongbao" }))
+                {
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="TenDangNhap" placeholder="Tài khoản" required="required" id="TenDangNhap">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="MatKhau" placeholder="Mật khẩu" required="required" id="MatKhau">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn" id="btnLogin">Login</button>
+                    </div>
+                    <h5 style="font-weight:bold;color:red;background-color:white;" class="text-center" id="thongbao"></h5>
+                }
+            </div>
+            <div class="modal-footer">
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#btnDangNhap").click(function () {
+        $("#myModal").modal().show();
+    });
+
+    $("#btnLogin").click(function () {
+        var TaiKhoan = $("#TenDangNhap").val();
+        var MatKhau = $("#MatKhau").val();
+    });
+</script>
+<style>
+    body {
+        font-family: 'Varela Round', sans-serif;
+    }
+
+    .modal-login {
+        color: #636363;
+        width: 350px;
+    }
+
+        .modal-login .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .modal-login .modal-header {
+            border-bottom: none;
+            position: relative;
+            justify-content: center;
+        }
+
+        .modal-login h4 {
+            text-align: center;
+            font-size: 26px;
+            margin: 30px 0 -15px;
+        }
+
+        .modal-login .form-control:focus {
+            border-color: #70c5c0;
+        }
+
+        .modal-login .form-control, .modal-login .btn {
+            min-height: 40px;
+            border-radius: 3px;
+        }
+
+        .modal-login .close {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .modal-login .modal-footer {
+            background: #ecf0f1;
+            border-color: #dee4e7;
+            text-align: center;
+            justify-content: center;
+            margin: 0 -20px -20px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+            .modal-login .modal-footer a {
+                color: #999;
+            }
+
+        .modal-login .avatar {
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: -70px;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            z-index: 9;
+            background: #ED4E10;
+            padding: 15px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+            .modal-login .avatar img {
+                width: 100%;
+            }
+
+        .modal-login.modal-dialog {
+            margin-top: 80px;
+        }
+
+        .modal-login .btn, .modal-login .btn:active {
+            color: #fff;
+            border-radius: 4px;
+            background: #ED4E10 !important;
+            text-decoration: none;
+            transition: all 0.4s;
+            line-height: normal;
+            border: none;
+        }
+
+            .modal-login .btn:hover, .modal-login .btn:focus {
+                background: #000000 !important;
+                outline: none;
+            }
+
+    .trigger-btn {
+        display: inline-block;
+        margin: 100px auto;
+    }
+</style>
+
+
